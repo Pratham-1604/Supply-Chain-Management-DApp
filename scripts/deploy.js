@@ -5,7 +5,8 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 // deploy.js
-const { ethers } = require("hardhat");
+import pkg from 'hardhat';
+const { ethers } = pkg;
 
 async function deployContracts() {
   const Tracking = await ethers.getContractFactory("Tracking");
