@@ -30,7 +30,7 @@ const index = () => {
   const [getModal, setGetModal] = useState(false);
 
   // DATA STATE VARIABLE
-  const [allShipmentsData, setAllShipmentsData] = useState();
+  const [allShipmentsData, setAllShipmentsData] = useState([]);
 
   useEffect(() => {
     const getCampaignsData = getAllShipment();
