@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Web3Modal from "web3modal";
 
 import tracking from "../Context/Tracking.json";
-const ContractAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
+const ContractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 const ContractAbi = tracking.abi;
 
 const fetchContract = (signerOrProvider) =>
@@ -17,9 +17,9 @@ export const TrackingProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState("");
 
   const createShipment = async (items) => {
-    console.log(items);
+    console.log("items: " , items);
     const { receiver, pickupTime, distance, price } = items;
-
+    console.log(receiver, pickupTime, distance, price);
     try {
       const web3Modal = new Web3Modal();
       const connection = await web3Modal.connect();
@@ -28,7 +28,7 @@ export const TrackingProvider = ({ children }) => {
       const contract = fetchContract(signer);
       const createItem = await contract.createShipment(
         receiver,
-        new Date(pickupTime).getTime,
+        new Date(pickupTime).getTime(),
         distance,
         ethers.utils.parseUnits(price, 18),
         {
@@ -36,7 +36,7 @@ export const TrackingProvider = ({ children }) => {
         }
       );
       await createItem.wait();
-      console.log(createItem);
+      console.log("create item: " , createItem);
     } catch (error) {
       console.log("Error with creating shipment! ", error);
     }

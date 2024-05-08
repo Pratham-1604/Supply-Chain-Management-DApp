@@ -25,8 +25,8 @@ const Table = ({ setCreateShipmentModel, allShipmentsdata }) => {
         </div>
         <div className="mt-3 md:mt-0">
           <p
-            href={() => setCreateShipmentModel(true)}
-            onClick="javascript:void(0)"
+            onClick={() => setCreateShipmentModel(true)}
+            href="javascript:void(0)"
             className="inline-block px-4 py-2 text-white duration-150 font-medium bg-gray-800 hover:bg-gray-700 active:bg-gray-900 md: text-sm rounded-lg md:inline-flex"
           >
             Add Tracking
@@ -76,8 +76,7 @@ const Table = ({ setCreateShipmentModel, allShipmentsdata }) => {
                     ? "Pending"
                     : shipment.status === 1
                     ? "In Transit"
-                    : "Delivered"
-                  }
+                    : "Delivered"}
                 </td>
               </tr>
             ))}
