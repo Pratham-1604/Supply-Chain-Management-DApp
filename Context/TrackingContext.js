@@ -72,7 +72,7 @@ export const TrackingProvider = ({ children }) => {
 
       const provider = new ethers.providers.JsonRpcProvider();
       const contract = fetchContract(provider);
-      const shipmentsCount = await contract.getShipmentsCount(accounts[0]);
+      const shipmentsCount = await contract.getShipmentCount(accounts[0]);
       return shipmentsCount.toNumber();
     } catch (error) {
       console.log("Error with fetching shipments count! ", error);

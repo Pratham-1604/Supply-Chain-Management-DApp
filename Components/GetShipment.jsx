@@ -8,9 +8,9 @@ const GetShipment = ({getModel, getShipment, setGetModel}) => {
   const getShipmentData = async () => {
     const getData =  await getShipment(index);
     setSingleShipmentData(getData);
-    console.log("single shipment data: " , getData);
+    console.log("single shipmentss data: " , getData);
   }
-  console.log("single shipment data", singleShipmentData);
+  // console.log("single shipment data", singleShipmentData);
   const convertTime = (time) => {
     const newTime = new Date(time);
     const dataTime = new Intl.DateTimeFormat("en-US", {
@@ -66,7 +66,7 @@ const GetShipment = ({getModel, getShipment, setGetModel}) => {
                 <p>DeliveryTime: {convertTime(singleShipmentData.deliveryTime)}</p>
                 <p>Distance: {singleShipmentData.distance}</p>
                 <p>Price: {singleShipmentData.price}</p>
-                <p>Status: {singleShipmentData.status}</p>
+                <p>Status: {singleShipmentData.status ? "Done" : "Pending"}</p>
                 <p>Paid: {" "} {singleShipmentData.isPaid ? "Paid" : "Not Paid"}</p>
               </div>
             )}

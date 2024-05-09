@@ -25,7 +25,7 @@ const CompleteShipment = ({
           <div className="flex justify-end">
             <button
               className="p-2 text-gray-400 rounded-md hover:bg-gray-100"
-              onClick={() => setStartModal(false)}
+              onClick={() => setCompleteModal(false)}
             >
               <Str1 />
             </button>
